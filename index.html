@@ -13,17 +13,15 @@ html, body {
     background: black;
 }
 
-/* Canva runs at its native design resolution */
+/* Fullscreen Canva iframe */
 #canva {
     position: fixed;
-    top: 0;
-    left: 0;
-
-    width: 1920px;   /* <-- Canva design width */
-    height: 1080px;  /* <-- Canva design height */
-
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
     border: none;
-    transform-origin: top left;
+    transform: scale(1.1);
+    transform-origin: center;
 }
 </style>
 </head>
@@ -36,19 +34,6 @@ html, body {
     allowfullscreen
     loading="lazy">
 </iframe>
-
-<script>
-function resizeCanva() {
-    const designWidth = 1920; // must match the CSS width above
-    const scale = window.innerWidth / designWidth;
-
-    const iframe = document.getElementById("canva");
-    iframe.style.transform = `scale(${scale})`;
-}
-
-window.addEventListener("resize", resizeCanva);
-resizeCanva();
-</script>
 
 </body>
 </html>
